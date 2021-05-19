@@ -9,5 +9,14 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color:cyan;
 
+}
+
+.sottotitolo{
+    text-align: center;
+    font-size: 12px;
+}
+.tasks{
+    background-color: rgb(127, 147, 207);
 }

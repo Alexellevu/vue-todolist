@@ -18,11 +18,17 @@
         <div class="add_task">
             <input v-model="newTask" type="text" placeholder="aggiungi task">
             <button @click="addTask">Add Task</button>
+            <div class="sottotitolo"><span>Add a simple task to do</span></div>
+            
         </div>
 
         <div class="tasks" v-if="tasks.length > 0">
-            <div class="task" v-for="(task,index) in tasks ">{{task}}</div>
+            <div class="task" v-for="(task,index) in tasks ">{{task}}
+                <i class="fas fa-trash" @click="removeTask(index)"></i>
+            </div>
         </div>
+
+        
 
     </div>
 
