@@ -22,7 +22,8 @@
         </div>
 
         <div class="tasks" v-if="tasks.length > 0">
-            <div class="task" v-for="(task,index) in tasks ">{{task}}
+            <div @click="change(index)" class="task" v-for="(task,index) in tasks ">{{task}}
+                <i class="fas fa-check-circle" ></i>
                 <i class="fas fa-trash" @click="removeTask(index)"></i>
                 
             </div>
@@ -30,7 +31,7 @@
             
             
         </div>
-        <span class="empty" v-else="tasks.length = 0" >Nothing to Do</span> 
+        <span class="empty" v-else="tasks.length = 0" >Nothing to Do!</span> 
         
 
     </div>
