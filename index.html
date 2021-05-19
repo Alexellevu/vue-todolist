@@ -10,7 +10,22 @@
     <title>Task</title>
 </head>
 <body>
-    
+    <div id="app" class="container">
+        <div class="logo">
+            <img width="200px" :src="logo" alt="">
+        </div>
+
+        <div class="add_task">
+            <input v-model="newTask" type="text" placeholder="aggiungi task">
+            <button @click="addTask">Add Task</button>
+        </div>
+
+        <div class="tasks" v-if="tasks.length > 0">
+            <div class="task" v-for="(task,index) in tasks "></div>{{task}}
+        </div>
+
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="./assets/main.js"></script>
 </body>
