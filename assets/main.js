@@ -23,6 +23,4 @@ const app = new Vue({
             this.tasks.splice(index, 1);
         }
     }
-
-
 })
