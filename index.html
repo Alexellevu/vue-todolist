@@ -16,14 +16,15 @@
         </div>
 
         <div class="add_task">
-            <input v-model="newTask" type="text" placeholder="aggiungi task">
+            <input v-model="newTask" @keyup.enter='addTask' type="text" @ placeholder="aggiungi task">
             <button @click="addTask">Add Task</button>
             <div class="sottotitolo"><span>Add a simple task to do</span></div>
         </div>
 
         <div class="tasks" v-if="tasks.length > 0">
-            <div @click="change(index)" class="task" v-for="(task,index) in tasks ">{{task}}
-                <i class="fas fa-check-circle" ></i>
+            <div class="task" v-for="(task,index) in tasks ">
+                <input type="text" v-model="tasks[index]" @keyup.enter="changeTask">
+                <i class="fas fa-check-circle" @click="completeTask(index, task)" ></i>
                 <i class="fas fa-trash" @click="removeTask(index)"></i>
                 
             </div>
@@ -32,6 +33,10 @@
             
         </div>
         <span class="empty" v-else="tasks.length = 0" >Nothing to Do!</span> 
+
+        <div class="completed_tasks">
+            <h3>Completed Tasks</h3>
+        </div>
         
 
     </div>

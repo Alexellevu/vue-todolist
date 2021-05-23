@@ -10,16 +10,13 @@ const app = new Vue({
             'learnCSS',
             'learnJS'
         ],
-        tasksConfirm:[]
+        tasksCompleted:[]
     },
     methods:
     {
         addTask(){
-            
-            
-            
             if(this.newTask ==='' || this.newTask.length <= 3){
-                alert('task errata riprovare')
+                alert('scrittura errata riprovare')
                 
             }else{
             
@@ -33,9 +30,14 @@ const app = new Vue({
             this.tasks.splice(index, 1);
         },
 
-        change(index){
-            console.log(this.task);
+        changeTask(){
+        alert('task updated')
             
+        },
+
+        completeTask(index, task){
+            this.tasksCompleted.push(task);
+            this.tasks.splice(index, 1);
         }
 
         
