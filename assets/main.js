@@ -2,6 +2,8 @@ const app = new Vue({
     el:'#app',
     
     data:{
+        
+
         logo: './assets/logo.png',
         el:'#app',
         newTask:'',
@@ -10,24 +12,33 @@ const app = new Vue({
             'learnCSS',
             'learnJS'
         ],
-        tasksCompleted:[]
+        tasksCompleted:[],
+        trashTask:[]
     },
     methods:
     {
         addTask(){
-            if(this.newTask ==='' || this.newTask.length <= 3){
+            if(this.newTask ==='' || this.newTask.length < 3){
                 alert('scrittura errata riprovare')
                 
             }else{
             
-            this.tasks.push(this.newTask);
-            
+            this.tasks.unshift(this.newTask);
+            this.newTask = ''
             }
             return this.newTask;
+           
         },
         
-        removeTask(index){
-            this.tasks.splice(index, 1);
+        removeTask(index,task){
+           console.log(task);
+
+           this.trashTask.unshift(task);
+              this.tasks.splice(index, 1);
+        
+          
+            
+         
         },
 
         changeTask(){
@@ -36,8 +47,17 @@ const app = new Vue({
         },
 
         completeTask(index, task){
-            this.tasksCompleted.push(task);
+            this.tasksCompleted.unshift(task);
             this.tasks.splice(index, 1);
+           
+        },
+
+        restoreCompleteTask(index, task){
+           
+            this.tasks.unshift(task);
+
+            this.tasksCompleted.splice(index, 1);
+            
         }
 
         

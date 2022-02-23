@@ -6,10 +6,11 @@
 
 .container{
     display: flex;
-    justify-content: center;
+    justify-content:start;
     align-items: center;
     flex-direction: column;
     background-color:cyan;
+    height: 100vh;
 
 }
 
@@ -19,5 +20,22 @@
 }
 .tasks{
     background-color: rgb(127, 147, 207);
+    border:none;
+    padding: 20px;
+    margin: 15px;
     
 }
+
+.completed_tasks{
+    background-color: white;
+    margin:20px;
+    padding: 5px;
+    border-radius: 3px;
+
+}
+
+.trash{
+    background-color: white;
+    margin: 20px;
+}
+

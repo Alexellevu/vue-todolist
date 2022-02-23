@@ -11,6 +11,10 @@
 </head>
 <body>
     <div id="app" class="container">
+
+     
+   
+
         <div class="logo">
             <img width="200px" :src="logo" alt="">
         </div>
@@ -22,23 +26,32 @@
         </div>
 
         <div class="tasks" v-if="tasks.length > 0">
-            <div class="task" v-for="(task,index) in tasks ">
-                <input type="text" v-model="tasks[index]" @keyup.enter="changeTask">
-                <i class="fas fa-check-circle" @click="completeTask(index, task)" ></i>
-                <i class="fas fa-trash" @click="removeTask(index)"></i>
-                
-            </div>
+            <h3>Tasks ToDO</h3>
+                <div class="task" v-for="(task,index) in tasks ">
+                    <input type="text" v-model="tasks[index]" @keyup.enter="changeTask">
+                    <i class="fas fa-check-circle" @click="completeTask(index, task)" ></i>
+                    <i class="fas fa-trash" @click="removeTask(index,task)"></i>
+                    
+                </div>
            
-            
-            
         </div>
         <span class="empty" v-else="tasks.length = 0" >Nothing to Do!</span> 
 
-        <div class="completed_tasks">
+        <div class="completed_tasks" v-if="tasksCompleted.length > 0">
             <h3>Completed Tasks</h3>
+            <div v-for="(task, index) in tasksCompleted">
+                {{task}} <i class="fas fa-redo" @click="restoreCompleteTask(index, task)"></i>
+            </div>
+        </div>
+
+        <div class="trash" v-if="trashTask.length > 0" >
+            <h3>Delete Task</h3>
+            <div v-for="(task, index) in trashTask"> 
+                {{task}} <i class="fas fa-redo" @click="restoreCompleteTask(index, task)" ></i>
+            </div>
         </div>
         
-
+           
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
